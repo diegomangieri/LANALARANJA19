@@ -53,10 +53,10 @@ export default function VIPSubscriptionPage() {
   ]
 
   const checkoutLinks = {
-    '15': 'https://seguro.lanaalvarenga.bio/checkout/v4/XDoArfxpSnJZfgjTgRvq',
-    '30': 'https://seguro.lanaalvarenga.bio/checkout/v4/XDoArfxpSnJZfgjTgRvq',
-    '90': 'https://seguro.lanaalvarenga.bio/checkout/v4/XDoArfxpSnJZfgjTgRvq',
-    '180': 'https://seguro.lanaalvarenga.bio/checkout/v4/XDoArfxpSnJZfgjTgRvq',
+    '15': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '30': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '90': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '180': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
   }
 
   const [promoDate, setPromoDate] = useState('')
@@ -152,7 +152,7 @@ export default function VIPSubscriptionPage() {
         {/* Profile Header Section */}
         <div className="px-4 py-4 bg-white">
           <div className="flex items-start gap-4 mb-4">
-            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#00A19C] to-[#00d4cd] flex-shrink-0 overflow-hidden">
+            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#f78f3e] to-[#fbba78] flex-shrink-0 overflow-hidden">
               <Image
                 src="/images/lana-white-top.jpg"
                 alt="Lana Alvarenga"
@@ -240,35 +240,35 @@ export default function VIPSubscriptionPage() {
           <h3 className="text-2xl font-bold text-foreground mb-4">Assinatura <span className="text-base font-medium text-muted-foreground">(mensal)</span></h3>
           
           <div className="flex gap-2 mb-4">
-            <Badge variant="secondary" className="bg-[#ccf0ef] text-[#00A19C] border-0 font-semibold">
+            <Badge variant="secondary" className="bg-[#fef3e8] text-[#f78f3e] border-0 font-semibold">
               VEJA TUDO AGORA
             </Badge>
-            <Badge variant="secondary" className="bg-[#00A19C] text-white border-0 font-semibold">
+            <Badge variant="secondary" className="bg-[#f78f3e] text-white border-0 font-semibold">
               Promoção
             </Badge>
           </div>
 
           {/* Featured Plan */}
-          <Card className="bg-gradient-to-br from-[#00A19C] to-[#00d4cd] text-white p-6 mb-4 border-0 shadow-lg">
+          <Card className="bg-gradient-to-br from-[#f78f3e] to-[#fbba78] text-white p-6 mb-4 border-0 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div>
                 <p className="text-lg font-semibold mb-1">Acesso completo</p>
               </div>
               <div className="text-right">
                 <p className="text-xs text-white/70 line-through">R$ 99,90</p>
-                <p className="text-3xl font-bold">R$ 29,90</p>
+                <p className="text-3xl font-bold">R$ 19,90</p>
               </div>
             </div>
             <Button 
               size="lg" 
-              className="w-full bg-[#008a86] text-white hover:bg-[#007a76] font-bold text-base h-12 active:scale-95 transition-transform duration-150 shadow-lg hover:shadow-xl"
+              className="w-full bg-[#e07a2e] text-white hover:bg-[#c96a22] font-bold text-base h-12 active:scale-95 transition-transform duration-150 shadow-lg hover:shadow-xl"
               onClick={() => window.location.href = checkoutLinks['15']}
             >
               Assinar agora!
             </Button>
           </Card>
 
-          <div className="bg-[#e6f7f6] border-2 border-[#00A19C] rounded-lg p-3 mb-4">
+          <div className="bg-[#fef3e8] border-2 border-[#f78f3e] rounded-lg p-3 mb-4">
             <p className="text-sm font-bold text-primary text-center">
               Acesso imediato via E-mail!
             </p>
@@ -276,7 +276,7 @@ export default function VIPSubscriptionPage() {
 
           {/* Security Badges */}
           <div className="flex items-center justify-center gap-4 text-sm mb-6">
-            <div className="flex items-center gap-1 text-[#00A19C]">
+            <div className="flex items-center gap-1 text-[#f78f3e]">
               <Lock className="w-4 h-4" />
               <span className="font-medium">Pagamento 100% seguro</span>
             </div>
