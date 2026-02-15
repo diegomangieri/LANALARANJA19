@@ -2,27 +2,24 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 
-export default function VIPSubscriptionPage() {
+export default function VIPSubscriptionPageEN() {
   const [showVIP, setShowVIP] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
   const [vipContentVisible, setVipContentVisible] = useState(false)
 
-  // Fade in everything on mount
   useEffect(() => {
     const timer = setTimeout(() => setPageReady(true), 50)
     return () => clearTimeout(timer)
   }, [])
 
-  // VIP content fade in
   useEffect(() => {
     if (showVIP) {
       const timer = setTimeout(() => setVipContentVisible(true), 100)
@@ -32,32 +29,32 @@ export default function VIPSubscriptionPage() {
 
   const faqItems = [
     {
-      question: "É sigiloso? Vai aparecer na minha fatura?",
-      answer: "Sim, é 100% sigiloso. Na sua fatura aparecerá apenas um nome genérico, sem referência ao conteúdo."
+      question: "Is it discreet? Will it show on my bank statement?",
+      answer: "Yes, it is 100% discreet. Only a generic name will appear on your statement, with no reference to the content."
     },
     {
-      question: "Tenho acesso imediato aos conteúdos?",
-      answer: "O acesso é imediato! Assim que o pagamento for confirmado, você já pode acessar todos os meus conteúdos exclusivos."
+      question: "Do I get immediate access to the content?",
+      answer: "Access is immediate! As soon as the payment is confirmed, you can access all of my exclusive content right away."
     },
     {
-      question: "Posso cancelar quando eu quiser?",
-      answer: "Sim, você pode cancelar a qualquer momento. A assinatura não renova automaticamente, você tem total controle."
+      question: "Can I cancel anytime?",
+      answer: "Yes, you can cancel at any time. The subscription does not renew automatically — you have full control."
     },
     {
-      question: "Possuí reembolso ou garantia?",
-      answer: "Temos garantia de 7 dias. Se não ficar satisfeito, devolvemos 100% do seu dinheiro."
+      question: "Is there a refund or guarantee?",
+      answer: "We offer a 7-day guarantee. If you are not satisfied, we will refund 100% of your money."
     },
     {
-      question: "Como vou acessar os conteúdos?",
-      answer: "Após assinar, você receberá o convite exclusivo via E-mail para o Grupo VIP com conteúdos extras, interação direta e atualizações diárias."
+      question: "How will I access the content?",
+      answer: "After subscribing, you will receive an exclusive invitation via email to the VIP Group with extra content, direct interaction, and daily updates."
     }
   ]
 
   const checkoutLinks = {
-    '15': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '30': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '90': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '180': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '15': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '30': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '90': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '180': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
   }
 
   const [promoDate, setPromoDate] = useState('')
@@ -65,9 +62,9 @@ export default function VIPSubscriptionPage() {
   useEffect(() => {
     const tomorrow = new Date()
     tomorrow.setDate(tomorrow.getDate() + 1)
-    setPromoDate(tomorrow.toLocaleDateString('pt-BR', { 
-      day: '2-digit', 
+    setPromoDate(tomorrow.toLocaleDateString('en-US', { 
       month: '2-digit', 
+      day: '2-digit', 
       year: 'numeric' 
     }))
   }, [])
@@ -88,11 +85,11 @@ export default function VIPSubscriptionPage() {
       >
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-foreground font-semibold">Carregando conteúdos...</p>
+          <p className="text-foreground font-semibold">Loading content...</p>
         </div>
       </div>
 
-      {/* Landing Page - Always rendered, hidden when VIP is shown */}
+      {/* Landing Page */}
       <div 
         className={`fixed inset-0 bg-gradient-to-br from-primary via-primary to-accent flex items-center justify-center p-4 transition-opacity duration-700 ease-out ${pageReady && !showVIP ? 'opacity-100' : 'opacity-0'} ${showVIP ? 'hidden' : ''}`}
       >
@@ -119,31 +116,25 @@ export default function VIPSubscriptionPage() {
             </p>
           </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col gap-3">
+          {/* Button */}
+          <div>
             <button
               onClick={handleAccessContent}
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
             >
-              Conteúdinhos aqui 😈🙈
-            </button>
-            <Link
-              href="/en"
-              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center block"
-            >
               Exclusive content here 😈🙈
-            </Link>
+            </button>
           </div>
         </div>
       </div>
 
-      {/* VIP Content Page - Always rendered but hidden initially */}
+      {/* VIP Content Page */}
       <div 
         className={`min-h-screen bg-background transition-opacity duration-700 ease-out ${showVIP && vipContentVisible ? 'opacity-100' : 'opacity-0'} ${!showVIP ? 'hidden' : ''}`}
       >
         {/* Promotional Banner */}
         <div className="bg-primary text-white text-center py-3 px-4 font-semibold text-sm">
-          ESSA PROMOÇÃO É VÁLIDA ATÉ {promoDate}
+          THIS PROMOTION IS VALID UNTIL {promoDate}
         </div>
 
         {/* Logo Section */}
@@ -152,7 +143,7 @@ export default function VIPSubscriptionPage() {
             <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg">
               C
             </div>
-            <h1 className="text-xl font-bold text-foreground">Conteúdos VIP</h1>
+            <h1 className="text-xl font-bold text-foreground">VIP Content</h1>
           </div>
         </div>
 
@@ -181,11 +172,11 @@ export default function VIPSubscriptionPage() {
               <div className="flex items-center gap-4 text-sm">
                 <div className="text-center">
                   <span className="font-bold text-foreground">59</span>
-                  <span className="text-muted-foreground ml-1">Fotos</span>
+                  <span className="text-muted-foreground ml-1">Photos</span>
                 </div>
                 <div className="text-center">
                   <span className="font-bold text-foreground">38</span>
-                  <span className="text-muted-foreground ml-1">Vídeos</span>
+                  <span className="text-muted-foreground ml-1">Videos</span>
                 </div>
                 <div className="text-center">
                   <span className="font-bold text-foreground">6.2K</span>
@@ -196,9 +187,9 @@ export default function VIPSubscriptionPage() {
           </div>
           
           <p className="text-sm text-foreground leading-relaxed">
-            Quer ver minha 🌸 com vitiligo...? 🙈
+            {"Want to see my 🌸 with vitiligo...? 🙈"}
             <br />
-            Minha pele faz meu corpo ser único — e aqui vou te mostrar tudinho sem censuras. 😈
+            {"My skin makes my body one of a kind — and here I'll show you everything uncensored. 😈"}
           </p>
         </div>
 
@@ -210,7 +201,7 @@ export default function VIPSubscriptionPage() {
           <div className="w-full h-[400px] bg-zinc-800 relative overflow-hidden flex items-center justify-center">
             <Image
               src="/images/vip-preview-2.png"
-              alt="Conteúdo Exclusivo"
+              alt="Exclusive Content"
               fill
               className="object-cover object-center"
               priority
@@ -223,8 +214,8 @@ export default function VIPSubscriptionPage() {
                 <div className="w-14 h-14 rounded-full bg-zinc-200 flex items-center justify-center mx-auto mb-3">
                   <Lock className="w-7 h-7 text-zinc-600" />
                 </div>
-                <p className="text-foreground font-semibold mb-1">Conteúdo Exclusivo</p>
-                <p className="text-muted-foreground text-sm">Assine para desbloquear</p>
+                <p className="text-foreground font-semibold mb-1">Exclusive Content</p>
+                <p className="text-muted-foreground text-sm">Subscribe to unlock</p>
               </div>
             </div>
 
@@ -244,14 +235,14 @@ export default function VIPSubscriptionPage() {
 
         {/* Subscription Section */}
         <div className="px-4 py-6 bg-zinc-50">
-          <h3 className="text-2xl font-bold text-foreground mb-4">Assinatura <span className="text-base font-medium text-muted-foreground">(mensal)</span></h3>
+          <h3 className="text-2xl font-bold text-foreground mb-4">Subscription <span className="text-base font-medium text-muted-foreground">(monthly)</span></h3>
           
           <div className="flex gap-2 mb-4">
             <Badge variant="secondary" className="bg-[#fef3e8] text-[#f78f3e] border-0 font-semibold">
-              VEJA TUDO AGORA
+              SEE EVERYTHING NOW
             </Badge>
             <Badge variant="secondary" className="bg-[#f78f3e] text-white border-0 font-semibold">
-              Promoção
+              Sale
             </Badge>
           </div>
 
@@ -259,11 +250,11 @@ export default function VIPSubscriptionPage() {
           <Card className="bg-gradient-to-br from-[#f78f3e] to-[#fbba78] text-white p-6 mb-4 border-0 shadow-lg">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-lg font-semibold mb-1">Acesso completo</p>
+                <p className="text-lg font-semibold mb-1">Full access</p>
               </div>
               <div className="text-right">
-                <p className="text-xs text-white/70 line-through">R$ 99,90</p>
-                <p className="text-3xl font-bold">R$ 19,90</p>
+                <p className="text-xs text-white/70 line-through">$39.90</p>
+                <p className="text-3xl font-bold">$9.90</p>
               </div>
             </div>
             <Button 
@@ -271,13 +262,13 @@ export default function VIPSubscriptionPage() {
               className="w-full bg-[#e07a2e] text-white hover:bg-[#c96a22] font-bold text-base h-12 active:scale-95 transition-transform duration-150 shadow-lg hover:shadow-xl"
               onClick={() => window.location.href = checkoutLinks['15']}
             >
-              Assinar agora!
+              Subscribe now!
             </Button>
           </Card>
 
           <div className="bg-[#fef3e8] border-2 border-[#f78f3e] rounded-lg p-3 mb-4">
             <p className="text-sm font-bold text-primary text-center">
-              Acesso imediato via E-mail!
+              Immediate access via email!
             </p>
           </div>
 
@@ -285,12 +276,12 @@ export default function VIPSubscriptionPage() {
           <div className="flex items-center justify-center gap-4 text-sm mb-6">
             <div className="flex items-center gap-1 text-[#f78f3e]">
               <Lock className="w-4 h-4" />
-              <span className="font-medium">Pagamento 100% seguro</span>
+              <span className="font-medium">100% secure payment</span>
             </div>
             <div className="text-muted-foreground">|</div>
             <div className="flex items-center gap-1 text-primary">
               <Check className="w-4 h-4" />
-              <span className="font-medium">Acesso imediato</span>
+              <span className="font-medium">Immediate access</span>
             </div>
           </div>
 
@@ -298,7 +289,7 @@ export default function VIPSubscriptionPage() {
           <div className="relative aspect-[3/4] bg-zinc-800 rounded-2xl overflow-hidden -mb-6">
             <Image
               src="/images/vip-preview-1.png"
-              alt="Conteúdo Exclusivo"
+              alt="Exclusive Content"
               fill
               className="object-cover object-center"
               sizes="100vw"
@@ -310,16 +301,16 @@ export default function VIPSubscriptionPage() {
                 <div className="w-14 h-14 rounded-full bg-zinc-200 flex items-center justify-center mx-auto mb-3">
                   <Lock className="w-7 h-7 text-zinc-600" />
                 </div>
-                <p className="text-foreground font-semibold mb-1">Conteúdo Exclusivo</p>
-                <p className="text-muted-foreground text-sm">Assine para desbloquear</p>
+                <p className="text-foreground font-semibold mb-1">Exclusive Content</p>
+                <p className="text-muted-foreground text-sm">Subscribe to unlock</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* FAQ Section - Custom Built */}
+        {/* FAQ Section */}
         <div className="px-4 py-6 bg-zinc-50">
-          <h3 className="text-2xl font-bold text-primary mb-4">Perguntas Frequentes</h3>
+          <h3 className="text-2xl font-bold text-primary mb-4">Frequently Asked Questions</h3>
           
           <div className="flex flex-col gap-3">
             {faqItems.map((item, index) => (
@@ -349,9 +340,9 @@ export default function VIPSubscriptionPage() {
         {/* Footer Links */}
         <div className="py-6 bg-white border-t">
           <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground">
-            <button className="hover:text-primary">Termos de Uso</button>
+            <button className="hover:text-primary">Terms of Use</button>
             <span>|</span>
-            <button className="hover:text-primary">Política de Privacidade</button>
+            <button className="hover:text-primary">Privacy Policy</button>
           </div>
         </div>
       </div>
