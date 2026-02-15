@@ -1,8 +1,8 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
-import Link from 'next/link'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -10,8 +10,10 @@ import { Badge } from "@/components/ui/badge"
 
 
 export default function VIPSubscriptionPage() {
+  const router = useRouter()
   const [showVIP, setShowVIP] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isTransitioningEN, setIsTransitioningEN] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
   const [vipContentVisible, setVipContentVisible] = useState(false)
@@ -80,15 +82,32 @@ export default function VIPSubscriptionPage() {
     }, 1500)
   }
 
+  const handleAccessContentEN = () => {
+    setIsTransitioningEN(true)
+    setTimeout(() => {
+      router.push('/en?direct=1')
+    }, 1500)
+  }
+
   return (
     <>
-      {/* Transition Overlay */}
+      {/* Transition Overlay - Portuguese */}
       <div 
         className={`fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-500 ${isTransitioning ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
       >
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-foreground font-semibold">Carregando conteúdos...</p>
+          <p className="text-foreground font-semibold">Carregando conte&uacute;dos...</p>
+        </div>
+      </div>
+
+      {/* Transition Overlay - English */}
+      <div 
+        className={`fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-500 ${isTransitioningEN ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
+          <p className="text-foreground font-semibold">Loading content...</p>
         </div>
       </div>
 
@@ -127,12 +146,12 @@ export default function VIPSubscriptionPage() {
             >
               {'Conte\u00FAdinhos aqui \uD83D\uDE48 | \uD83C\uDDE7\uD83C\uDDF7'}
             </button>
-            <Link
-              href="/en"
-              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center block"
+            <button
+              onClick={handleAccessContentEN}
+              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center"
             >
               {'Exclusive content here \uD83D\uDE48 | \uD83C\uDDFA\uD83C\uDDF8'}
-            </Link>
+            </button>
           </div>
         </div>
       </div>
