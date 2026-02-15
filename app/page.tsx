@@ -125,13 +125,13 @@ export default function VIPSubscriptionPage() {
               onClick={handleAccessContent}
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
             >
-              Conteúdinhos aqui 😈🙈
+              {'Conte\u00FAdinhos aqui \uD83D\uDE48 | \uD83C\uDDE7\uD83C\uDDF7'}
             </button>
             <Link
-              href="/en"
+              href="/en?vip=1"
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center block"
             >
-              Exclusive content here 😈🙈
+              {'Exclusive content here \uD83D\uDE48 | \uD83C\uDDFA\uD83C\uDDF8'}
             </Link>
           </div>
         </div>

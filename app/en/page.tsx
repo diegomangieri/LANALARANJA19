@@ -1,19 +1,34 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Image from 'next/image'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-
 export default function VIPSubscriptionPageEN() {
-  const [showVIP, setShowVIP] = useState(false)
+  return (
+    <Suspense fallback={
+      <div className="fixed inset-0 bg-white flex items-center justify-center">
+        <Loader2 className="w-12 h-12 text-primary animate-spin" />
+      </div>
+    }>
+      <VIPSubscriptionPageENContent />
+    </Suspense>
+  )
+}
+
+function VIPSubscriptionPageENContent() {
+  const searchParams = useSearchParams()
+  const directVIP = searchParams.get('vip') === '1'
+
+  const [showVIP, setShowVIP] = useState(directVIP)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
-  const [vipContentVisible, setVipContentVisible] = useState(false)
+  const [vipContentVisible, setVipContentVisible] = useState(directVIP)
 
   useEffect(() => {
     const timer = setTimeout(() => setPageReady(true), 50)
@@ -122,7 +137,7 @@ export default function VIPSubscriptionPageEN() {
               onClick={handleAccessContent}
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
             >
-              Exclusive content here 😈🙈
+              {'Exclusive content here \uD83D\uDE48 | \uD83C\uDDFA\uD83C\uDDF8'}
             </button>
           </div>
         </div>
