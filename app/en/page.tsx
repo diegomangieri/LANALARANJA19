@@ -1,34 +1,19 @@
 'use client'
 
-import { useState, useEffect, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 export default function VIPSubscriptionPageEN() {
-  return (
-    <Suspense fallback={
-      <div className="fixed inset-0 bg-white flex items-center justify-center">
-        <Loader2 className="w-12 h-12 text-primary animate-spin" />
-      </div>
-    }>
-      <VIPSubscriptionPageENContent />
-    </Suspense>
-  )
-}
-
-function VIPSubscriptionPageENContent() {
-  const searchParams = useSearchParams()
-  const directVIP = searchParams.get('vip') === '1'
-
-  const [showVIP, setShowVIP] = useState(directVIP)
+  const [showVIP, setShowVIP] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
-  const [vipContentVisible, setVipContentVisible] = useState(directVIP)
+  const [vipContentVisible, setVipContentVisible] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setPageReady(true), 50)
@@ -104,7 +89,7 @@ function VIPSubscriptionPageENContent() {
         </div>
       </div>
 
-      {/* Landing Page */}
+      {/* Landing Page - Always rendered, hidden when VIP is shown */}
       <div 
         className={`fixed inset-0 bg-gradient-to-br from-primary via-primary to-accent flex items-center justify-center p-4 transition-opacity duration-700 ease-out ${pageReady && !showVIP ? 'opacity-100' : 'opacity-0'} ${showVIP ? 'hidden' : ''}`}
       >
@@ -131,14 +116,20 @@ function VIPSubscriptionPageENContent() {
             </p>
           </div>
 
-          {/* Button */}
-          <div>
+          {/* Buttons */}
+          <div className="flex flex-col gap-3">
             <button
               onClick={handleAccessContent}
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
             >
               {'Exclusive content here \uD83D\uDE48 | \uD83C\uDDFA\uD83C\uDDF8'}
             </button>
+            <Link
+              href="/"
+              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center block"
+            >
+              {'Conte\u00FAdinhos aqui \uD83D\uDE48 | \uD83C\uDDE7\uD83C\uDDF7'}
+            </Link>
           </div>
         </div>
       </div>
