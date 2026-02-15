@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
@@ -9,7 +10,25 @@ import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
 export default function VIPSubscriptionPageEN() {
-  const [showVIP, setShowVIP] = useState(false)
+  return (
+    <Suspense fallback={
+      <div className="fixed inset-0 bg-white z-[9999] flex items-center justify-center">
+        <div className="text-center">
+          <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
+          <p className="text-foreground font-semibold">Loading content...</p>
+        </div>
+      </div>
+    }>
+      <VIPSubscriptionPageENContent />
+    </Suspense>
+  )
+}
+
+function VIPSubscriptionPageENContent() {
+  const searchParams = useSearchParams()
+  const isDirect = searchParams.get('direct') === '1'
+
+  const [showVIP, setShowVIP] = useState(isDirect)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
