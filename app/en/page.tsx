@@ -51,10 +51,10 @@ export default function VIPSubscriptionPageEN() {
   ]
 
   const checkoutLinks = {
-    '15': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '30': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '90': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
-    '180': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '15': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '30': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '90': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
+    '180': 'https://buy.stripe.com/eVq5kE0BP9FRdm11X41wY00',
   }
 
   const [promoDate, setPromoDate] = useState('')
