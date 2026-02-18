@@ -279,7 +279,7 @@ function VIPSubscriptionPageENContent() {
               </div>
               <div className="text-right">
                 <p className="text-xs text-white/70 line-through">$39.90</p>
-                <p className="text-3xl font-bold">$9.90</p>
+                <p className="text-3xl font-bold">$5.90</p>
               </div>
             </div>
             <Button 
