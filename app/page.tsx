@@ -56,10 +56,10 @@ export default function VIPSubscriptionPage() {
   ]
 
   const checkoutLinks = {
-    '15': 'https://seguro.lanaalvarenga.com.br/checkout/v4/V6W2tG2g5nDNuVExNZT8',
-    '30': 'https://seguro.lanaalvarenga.com.br/checkout/v4/V6W2tG2g5nDNuVExNZT8',
-    '90': 'https://seguro.lanaalvarenga.com.br/checkout/v4/V6W2tG2g5nDNuVExNZT8',
-    '180': 'https://seguro.lanaalvarenga.com.br/checkout/v4/V6W2tG2g5nDNuVExNZT8',
+    '15': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '30': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '90': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
+    '180': 'https://seguro.lanaalvarenga.bio/checkout/v4/CVWw6klT1phj7NH9oCOZ',
   }
 
   const [promoDate, setPromoDate] = useState('')
@@ -281,8 +281,8 @@ export default function VIPSubscriptionPage() {
                 <p className="text-lg font-semibold mb-1">Acesso completo</p>
               </div>
               <div className="text-right">
-                <p className="text-xs text-white/70 line-through">R$ 29,90</p>
-                <p className="text-3xl font-bold">R$ 12,95</p>
+                <p className="text-xs text-white/70 line-through">R$ 99,90</p>
+                <p className="text-3xl font-bold">R$ 19,90</p>
               </div>
             </div>
             <Button 
