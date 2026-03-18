@@ -204,7 +204,7 @@ export default function VIPSubscriptionPage() {
               src="/locked-2.jpg"
               alt="Conteudo Exclusivo"
               fill
-              className="object-cover object-top blur-xl"
+              className="object-cover object-top blur-md"
               priority
               sizes="100vw"
             />
@@ -254,8 +254,8 @@ export default function VIPSubscriptionPage() {
                 <p className="text-lg font-semibold mb-1">Acesso completo</p>
               </div>
               <div className="text-right">
-                <p className="text-xs text-white/70 line-through">R$ 99,90</p>
-                <p className="text-3xl font-bold">R$ 19,95</p>
+                <p className="text-xs text-white/70 line-through">R$ 29,90</p>
+                <p className="text-3xl font-bold">R$ 14,95</p>
               </div>
             </div>
             <Button 
