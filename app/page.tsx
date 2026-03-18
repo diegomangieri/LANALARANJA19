@@ -204,7 +204,7 @@ export default function VIPSubscriptionPage() {
               src="/locked-2.jpg"
               alt="Conteudo Exclusivo"
               fill
-              className="object-cover object-top blur-md"
+              className="object-cover object-top blur-sm"
               priority
               sizes="100vw"
             />
