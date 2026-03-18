@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Heart, MessageCircle, ChevronDown, Lock, Check, Loader2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
@@ -10,10 +9,8 @@ import { Badge } from "@/components/ui/badge"
 
 
 export default function VIPSubscriptionPage() {
-  const router = useRouter()
   const [showVIP, setShowVIP] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [isTransitioningEN, setIsTransitioningEN] = useState(false)
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [pageReady, setPageReady] = useState(false)
   const [vipContentVisible, setVipContentVisible] = useState(false)
@@ -56,10 +53,9 @@ export default function VIPSubscriptionPage() {
   ]
 
   const checkoutLinks = {
-    '15': 'https://go.fruitfypay.com/HaEnQCJYwhJAIsO1',
-    '30': 'https://go.fruitfypay.com/HaEnQCJYwhJAIsO1',
-    '90': 'https://go.fruitfypay.com/HaEnQCJYwhJAIsO1',
-    '180': 'https://go.fruitfypay.com/HaEnQCJYwhJAIsO1',
+    semanal: 'https://go.fruitfypay.com/NnEAvOJTCaHXXJrH',
+    mensal: 'https://go.fruitfypay.com/IvCFRj0UzWRpUTxh',
+    anual: 'https://go.fruitfypay.com/bHg9ivNhAMlXL5NW',
   }
 
   const [promoDate, setPromoDate] = useState('')
@@ -82,13 +78,6 @@ export default function VIPSubscriptionPage() {
     }, 1500)
   }
 
-  const handleAccessContentEN = () => {
-    setIsTransitioningEN(true)
-    setTimeout(() => {
-      router.push('/en?direct=1')
-    }, 1500)
-  }
-
   return (
     <>
       {/* Transition Overlay - Portuguese */}
@@ -98,16 +87,6 @@ export default function VIPSubscriptionPage() {
         <div className="text-center">
           <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
           <p className="text-foreground font-semibold">Carregando conte&uacute;dos...</p>
-        </div>
-      </div>
-
-      {/* Transition Overlay - English */}
-      <div 
-        className={`fixed inset-0 bg-white z-[9999] flex items-center justify-center transition-opacity duration-500 ${isTransitioningEN ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-      >
-        <div className="text-center">
-          <Loader2 className="w-12 h-12 text-primary animate-spin mx-auto mb-4" />
-          <p className="text-foreground font-semibold">Loading content...</p>
         </div>
       </div>
 
@@ -121,20 +100,20 @@ export default function VIPSubscriptionPage() {
             <div className="w-32 h-32 rounded-full bg-white p-1 mx-auto mb-4 shadow-xl">
               <div className="w-full h-full rounded-full overflow-hidden bg-white/10">
                 <Image
-                  src="/images/lana-black-top.jpg"
-                  alt="Lana Alvarenga"
+                  src="/profile.jpg"
+                  alt="Lari Mangieri"
                   width={128}
                   height={128}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                   priority
                 />
               </div>
             </div>
             <h1 className="text-2xl font-bold text-white mb-2">
-              Lana Alvarenga
+              Lari Mangieri
             </h1>
             <p className="text-white/90 text-lg">
-              @lana.alvarenga
+              @lari.mangieri
             </p>
           </div>
 
@@ -144,13 +123,7 @@ export default function VIPSubscriptionPage() {
               onClick={handleAccessContent}
               className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95"
             >
-              {'Conte\u00FAdinhos aqui \uD83D\uDE48 | \uD83C\uDDE7\uD83C\uDDF7'}
-            </button>
-            <button
-              onClick={handleAccessContentEN}
-              className="w-full bg-zinc-900 hover:bg-zinc-800 text-white font-semibold py-4 px-6 rounded-full transition-all duration-200 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 text-center"
-            >
-              {'Exclusive content here \uD83D\uDE48 | \uD83C\uDDFA\uD83C\uDDF8'}
+              Conteúdinhos aqui! 🙈
             </button>
           </div>
         </div>
@@ -180,22 +153,22 @@ export default function VIPSubscriptionPage() {
           <div className="flex items-start gap-4 mb-4">
             <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[#f78f3e] to-[#fbba78] flex-shrink-0 overflow-hidden">
               <Image
-                src="/images/lana-white-top.jpg"
-                alt="Lana Alvarenga"
+                src="/profile.jpg"
+                alt="Lari Mangieri"
                 width={64}
                 height={64}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 priority
               />
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <h2 className="text-lg font-bold text-foreground">Lana Alvarenga</h2>
+                <h2 className="text-lg font-bold text-foreground">Lari Mangieri</h2>
                 <div className="w-5 h-5 rounded-full bg-primary flex items-center justify-center">
                   <Check className="w-3 h-3 text-white" />
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground mb-3">@lana.alvarenga</p>
+              <p className="text-sm text-muted-foreground mb-3">@lari.mangieri</p>
               
               <div className="flex items-center gap-4 text-sm">
                 <div className="text-center">
@@ -215,9 +188,9 @@ export default function VIPSubscriptionPage() {
           </div>
           
           <p className="text-sm text-foreground leading-relaxed">
-            Quer ver minha 🌸 com vitiligo...? 🙈
+            Quer ver minha 🌸, seu safado...? 🙈
             <br />
-            Minha pele faz meu corpo ser único — e aqui vou te mostrar tudinho sem censuras. 😈
+            Meu corpo é super gostosinho — e aqui vou te mostrar tudinho sem censuras. 😈
           </p>
         </div>
 
@@ -288,7 +261,7 @@ export default function VIPSubscriptionPage() {
             <Button 
               size="lg" 
               className="w-full bg-[#e07a2e] text-white hover:bg-[#c96a22] font-bold text-base h-12 active:scale-95 transition-transform duration-150 shadow-lg hover:shadow-xl"
-              onClick={() => window.location.href = checkoutLinks['15']}
+              onClick={() => window.location.href = checkoutLinks.mensal}
             >
               Assinar agora!
             </Button>

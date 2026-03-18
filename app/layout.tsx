@@ -7,7 +7,7 @@ import './globals.css'
 const _inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Conteúdos VIP - Lana Alvarenga',
+  title: 'Conteúdos VIP - Lari Mangieri',
   description: 'Acesse conteúdo premium exclusivo por um valor especial. Pagamento 100% seguro e acesso imediato.',
   generator: 'v0.app',
   icons: {
