@@ -201,10 +201,10 @@ export default function VIPSubscriptionPage() {
         <div className="relative">
           <div className="w-full h-[400px] bg-zinc-800 relative overflow-hidden flex items-center justify-center">
             <Image
-              src="/images/vip-preview-2.png"
-              alt="Conteúdo Exclusivo"
+              src="/locked-2.jpg"
+              alt="Conteudo Exclusivo"
               fill
-              className="object-cover object-center"
+              className="object-cover object-top blur-xl"
               priority
               sizes="100vw"
             />
@@ -289,8 +289,8 @@ export default function VIPSubscriptionPage() {
           {/* Locked Content Preview - Portrait */}
           <div className="relative aspect-[3/4] bg-zinc-800 rounded-2xl overflow-hidden -mb-6">
             <Image
-              src="/images/vip-preview-1.png"
-              alt="Conteúdo Exclusivo"
+              src="/locked-1.jpg"
+              alt="Conteudo Exclusivo"
               fill
               className="object-cover object-center"
               sizes="100vw"
